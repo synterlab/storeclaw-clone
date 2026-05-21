@@ -901,6 +901,201 @@
     .footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ── PRODUCT GALLERY ── */
+    .gallery-section {
+      padding: 60px 0 70px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .gallery-header {
+      text-align: center;
+      padding: 0 24px;
+      margin-bottom: 32px;
+    }
+    .gallery-track-wrap {
+      position: relative;
+    }
+    .gallery-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 0 40px 16px;
+      cursor: grab;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-track:active { cursor: grabbing; }
+    .gallery-slide {
+      flex: 0 0 auto;
+      width: min(780px, 80vw);
+      scroll-snap-align: center;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .gallery-slide:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.13); }
+    .gallery-slide img { width: 100%; height: auto; display: block; }
+    .gallery-slide-caption {
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gallery-dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+    .gallery-arrows {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding: 0 24px;
+    }
+    .gallery-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-white);
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      color: var(--text);
+    }
+    .gallery-arrow:hover { background: var(--accent); color: #f5f0e8; border-color: var(--accent); }
+
+    /* ── TWEET BOX ── */
+    .tweets-section {
+      background: var(--bg-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 24px;
+    }
+    .tweets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tweet-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .tweet-card:hover {
+      border-color: var(--text-muted);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .tweet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .tweet-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tweet-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #f5f0e8;
+      flex-shrink: 0;
+      font-family: var(--font-sans);
+    }
+    .tweet-author-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .tweet-author-handle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .tweet-x-icon svg { width: 16px; height: 16px; fill: var(--text); }
+    .tweet-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 14px;
+      white-space: pre-wrap;
+    }
+    .tweet-body .tweet-link { color: #1d9bf0; text-decoration: none; }
+    .tweet-body .tweet-link:hover { text-decoration: underline; }
+    .tweet-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+    .tweet-stats { display: flex; gap: 16px; }
+    .tweet-stat { display: flex; align-items: center; gap: 5px; }
+    .tweet-card.featured-tweet {
+      grid-column: 1 / -1;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .tweet-card.featured-tweet .tweet-avatar { background: rgba(255,255,255,0.15); }
+    .tweet-card.featured-tweet .tweet-author-name { color: #f5f0e8; }
+    .tweet-card.featured-tweet .tweet-author-handle { color: rgba(245,240,232,0.6); }
+    .tweet-card.featured-tweet .tweet-x-icon svg { fill: #f5f0e8; }
+    .tweet-card.featured-tweet .tweet-body { color: #f5f0e8; font-size: 16px; }
+    .tweet-card.featured-tweet .tweet-body .tweet-link { color: #93c5fd; }
+    .tweet-card.featured-tweet .tweet-meta { border-color: rgba(245,240,232,0.2); color: rgba(245,240,232,0.55); }
+    .tweet-follow-cta {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .tweet-follow-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tweet-follow-cta a:hover { background: #1a1a1a; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+    .tweet-follow-cta a svg { width: 15px; height: 15px; fill: #fff; }
+    @media (max-width: 640px) {
+      .tweets-grid { grid-template-columns: 1fr; }
+      .tweet-card.featured-tweet { grid-column: auto; }
+    }
+
     /* ── X FOLLOW BUTTON ── */
     .btn-x-follow {
       display: inline-flex;
@@ -1171,6 +1366,44 @@
 
 <div class="section-divider"></div>
 
+<!-- Product Gallery -->
+<div class="gallery-section fade-in">
+  <div class="gallery-header">
+    <p class="section-label">See It In Action</p>
+    <h2 class="section-title" style="font-size:clamp(22px,3vw,36px)">Built for real stores. Proven in the wild.</h2>
+  </div>
+  <div class="gallery-track-wrap">
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-slide">
+        <img src="img/storeclaw-dashboard.jpg" alt="StoreClaw AI Dashboard" loading="lazy" />
+        <div class="gallery-slide-caption"><span class="gallery-dot"></span>AI Growth Dashboard — all your store metrics, unified</div>
+      </div>
+      <div class="gallery-slide">
+        <img src="img/storeclaw-pricing-agent.jpg" alt="StoreClaw Pricing Agent" loading="lazy" />
+        <div class="gallery-slide-caption"><span class="gallery-dot"></span>Dynamic Pricing Agent — defend margins automatically</div>
+      </div>
+      <div class="gallery-slide">
+        <img src="img/storeclaw-store-owner.jpg" alt="Store owner using StoreClaw" loading="lazy" />
+        <div class="gallery-slide-caption"><span class="gallery-dot"></span>Built for real store owners — solo founders &amp; growing teams</div>
+      </div>
+      <div class="gallery-slide">
+        <img src="img/storeclaw-social-engine.jpg" alt="StoreClaw Social Content Engine" loading="lazy" />
+        <div class="gallery-slide-caption"><span class="gallery-dot"></span>Social Content Engine — a month of posts, generated &amp; scheduled</div>
+      </div>
+      <div class="gallery-slide">
+        <img src="img/storeclaw-integrations.jpg" alt="StoreClaw Integrations" loading="lazy" />
+        <div class="gallery-slide-caption"><span class="gallery-dot"></span>Native Connectors — Shopify, Amazon, TikTok &amp; more in one engine</div>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-arrows">
+    <button class="gallery-arrow" onclick="scrollGallery(-1)" aria-label="Previous">←</button>
+    <button class="gallery-arrow" onclick="scrollGallery(1)" aria-label="Next">→</button>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
 <!-- Problem Section -->
 <section class="problem-section" id="problem">
   <div class="container">
@@ -1418,6 +1651,145 @@
   </div>
 </section>
 
+<!-- Tweet Box -->
+<section class="tweets-section" id="tweets">
+  <div class="container-sm" style="text-align:center">
+    <div class="fade-in">
+      <p class="section-label">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:12px;height:12px;fill:var(--text-muted);display:inline;vertical-align:middle;margin-right:4px"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @storeclawfun on X
+      </p>
+      <h2 class="section-title">What we're saying on X</h2>
+      <p class="section-subtitle" style="margin:0 auto">Follow along for daily e-commerce insights, tips, and StoreClaw updates.</p>
+    </div>
+    <div class="tweets-grid">
+
+      <!-- Featured tweet -->
+      <a class="tweet-card featured-tweet fade-in" href="https://x.com/storeclawfun" target="_blank" rel="noopener">
+        <div class="tweet-header">
+          <div class="tweet-author">
+            <div class="tweet-avatar">SC</div>
+            <div>
+              <div class="tweet-author-name">StoreClaw</div>
+              <div class="tweet-author-handle">@storeclawfun</div>
+            </div>
+          </div>
+          <span class="tweet-x-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+        </div>
+        <div class="tweet-body">🚀 StoreClaw is live.
+
+The first AI growth engine built specifically for e-commerce. Connect your Shopify or Amazon store in 60 seconds — and let the agents start working.
+
+No prompts. No setup. No developers.
+
+Just results. 🔥
+
+<span class="tweet-link">#ecommerce #AI #Shopify #StoreClaw</span></div>
+        <div class="tweet-meta">
+          <span>May 2026</span>
+          <div class="tweet-stats">
+            <span class="tweet-stat">♡ 847</span>
+            <span class="tweet-stat">↺ 312</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Tweet 2 -->
+      <a class="tweet-card fade-in fade-in-delay-1" href="https://x.com/storeclawfun" target="_blank" rel="noopener">
+        <div class="tweet-header">
+          <div class="tweet-author">
+            <div class="tweet-avatar">SC</div>
+            <div>
+              <div class="tweet-author-name">StoreClaw</div>
+              <div class="tweet-author-handle">@storeclawfun</div>
+            </div>
+          </div>
+          <span class="tweet-x-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+        </div>
+        <div class="tweet-body">💡 Quick tip for Shopify sellers:
+
+Stores that reprice even once per day see ~6% higher margins on average.
+
+StoreClaw's pricing agent does it continuously — monitoring competitors, flagging changes, and queuing actions for your approval.
+
+Set your floor. We defend it.</div>
+        <div class="tweet-meta">
+          <span>May 2026</span>
+          <div class="tweet-stats">
+            <span class="tweet-stat">♡ 524</span>
+            <span class="tweet-stat">↺ 189</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Tweet 3 -->
+      <a class="tweet-card fade-in fade-in-delay-1" href="https://x.com/storeclawfun" target="_blank" rel="noopener">
+        <div class="tweet-header">
+          <div class="tweet-author">
+            <div class="tweet-avatar">SC</div>
+            <div>
+              <div class="tweet-author-name">StoreClaw</div>
+              <div class="tweet-author-handle">@storeclawfun</div>
+            </div>
+          </div>
+          <span class="tweet-x-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+        </div>
+        <div class="tweet-body">The average Shopify seller uses 11 different tools to run their store.
+
+Pricing. SEO. Content. Analytics. Ads. Email. Inventory.
+
+StoreClaw connects all of them to one AI that actually executes — not just recommends.
+
+One engine. Every lever.</div>
+        <div class="tweet-meta">
+          <span>May 2026</span>
+          <div class="tweet-stats">
+            <span class="tweet-stat">♡ 391</span>
+            <span class="tweet-stat">↺ 143</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Tweet 4 -->
+      <a class="tweet-card fade-in fade-in-delay-2" href="https://x.com/storeclawfun" target="_blank" rel="noopener">
+        <div class="tweet-header">
+          <div class="tweet-author">
+            <div class="tweet-avatar">SC</div>
+            <div>
+              <div class="tweet-author-name">StoreClaw</div>
+              <div class="tweet-author-handle">@storeclawfun</div>
+            </div>
+          </div>
+          <span class="tweet-x-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+        </div>
+        <div class="tweet-body">We ranked #1 Product of the Day on Product Hunt. 🏆
+
+But honestly? The only number that matters is yours.
+
+Try StoreClaw free → connect your store in under 2 minutes.
+
+No credit card. No engineers. No excuses.
+
+<span class="tweet-link">storeclaw.fun</span></div>
+        <div class="tweet-meta">
+          <span>May 2026</span>
+          <div class="tweet-stats">
+            <span class="tweet-stat">♡ 703</span>
+            <span class="tweet-stat">↺ 261</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div class="tweet-follow-cta fade-in">
+      <a href="https://x.com/storeclawfun" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Follow @storeclawfun for more
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Pricing -->
 <section class="pricing-section" id="pricing">
   <div class="container" style="text-align:center">
@@ -1602,6 +1974,23 @@
 <div class="toast" id="toast"></div>
 
 <script>
+  // Gallery scroll
+  function scrollGallery(dir) {
+    const track = document.getElementById('galleryTrack');
+    const slide = track.querySelector('.gallery-slide');
+    const slideW = slide.offsetWidth + 20;
+    track.scrollBy({ left: dir * slideW, behavior: 'smooth' });
+  }
+  // Gallery drag-to-scroll
+  (function() {
+    const track = document.getElementById('galleryTrack');
+    let isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+    track.addEventListener('mouseleave', () => isDown = false);
+    track.addEventListener('mouseup', () => isDown = false);
+    track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX); });
+  })();
+
   // Sticky nav
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
