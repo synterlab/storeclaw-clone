@@ -901,6 +901,74 @@
     .footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ── X FOLLOW BUTTON ── */
+    .btn-x-follow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #000;
+      color: #fff;
+      border: 1px solid #000;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-x-follow:hover { background: #1a1a1a; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn-x-follow svg { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .btn-x-follow { display: none; }
+    }
+
+    /* ── X TICKER STRIP ── */
+    .x-ticker-strip {
+      background: #000;
+      color: #fff;
+      padding: 9px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      overflow: hidden;
+    }
+    .x-ticker-icon { flex-shrink: 0; }
+    .x-ticker-icon svg { width: 14px; height: 14px; fill: #fff; display: block; }
+    .x-ticker-handle { color: rgba(255,255,255,0.7); font-weight: 400; }
+    .x-ticker-text { overflow: hidden; white-space: nowrap; }
+    .x-ticker-scroll {
+      display: inline-block;
+      animation: ticker-scroll 28s linear infinite;
+    }
+    .x-ticker-scroll:hover { animation-play-state: paused; }
+    .x-ticker-cta {
+      flex-shrink: 0;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .x-ticker-cta:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 480px) {
+      .x-ticker-handle { display: none; }
+    }
+
     /* ── TOAST ── */
     .toast {
       position: fixed;
@@ -964,6 +1032,18 @@
 </head>
 <body>
 
+<!-- X Ticker Strip -->
+<div class="x-ticker-strip">
+  <span class="x-ticker-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </span>
+  <span class="x-ticker-handle">@storeclawfun</span>
+  <span class="x-ticker-text">
+    <span class="x-ticker-scroll">Follow us on X for AI e-commerce tips, product updates &amp; early access announcements &nbsp;·&nbsp; The #1 AI growth engine for your store &nbsp;·&nbsp; Follow @storeclawfun for daily e-commerce insights &nbsp;·&nbsp; StoreClaw is live — connect your store in minutes &nbsp;·&nbsp; Follow us on X for AI e-commerce tips, product updates &amp; early access announcements &nbsp;·&nbsp; The #1 AI growth engine for your store &nbsp;·&nbsp; Follow @storeclawfun for daily e-commerce insights &nbsp;·&nbsp; StoreClaw is live — connect your store in minutes &nbsp;·&nbsp;</span>
+  </span>
+  <a class="x-ticker-cta" href="https://x.com/storeclawfun" target="_blank" rel="noopener">Follow</a>
+</div>
+
 <!-- Announcement Bar -->
 <div class="announcement-bar" onclick="window.open('https://www.producthunt.com/products/storeclaw','_blank')">
   <span class="badge-new">NEW</span>
@@ -975,6 +1055,10 @@
 <nav id="navbar">
   <a href="#" class="nav-logo">StoreClaw</a>
   <div class="nav-right">
+    <a class="btn-x-follow" href="https://x.com/storeclawfun" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Follow
+    </a>
     <button class="btn-ghost" onclick="showToast('Opening login...')">Log in</button>
     <button class="btn-dark" onclick="showToast('Welcome! Setting up your store...')">Get Started</button>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
@@ -998,6 +1082,10 @@
     <a href="#faq" onclick="toggleMenu()">FAQ</a>
   </div>
   <div class="mobile-menu-btns">
+    <a class="btn-x-follow" href="https://x.com/storeclawfun" target="_blank" rel="noopener" style="display:inline-flex;justify-content:center;padding:14px;font-size:15px;border-radius:10px;gap:8px;">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Follow @storeclawfun on X
+    </a>
     <button class="btn-ghost" onclick="showToast('Opening login...'); toggleMenu()">Log in</button>
     <button class="btn-dark" onclick="showToast('Welcome! Setting up your store...'); toggleMenu()">Get Started Free</button>
   </div>
@@ -1499,6 +1587,10 @@
   <div class="footer-bottom">
     <p>© 2026 StoreClaw, Inc. All rights reserved.</p>
     <div class="footer-links">
+      <a href="https://x.com/storeclawfun" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:12px;height:12px;fill:currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @storeclawfun
+      </a>
       <a href="#" onclick="showToast('Privacy Policy')">Privacy</a>
       <a href="#" onclick="showToast('Terms of Service')">Terms</a>
       <a href="#" onclick="showToast('Cookie settings')">Cookies</a>
